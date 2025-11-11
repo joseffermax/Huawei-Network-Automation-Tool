@@ -64,7 +64,12 @@ Cada módulo executa uma função essencial para administração de redes.
 O ambiente foi montado no **Huawei eNSP (Emulator Network Simulation Platform)**, utilizando roteadores **Huawei AR**.  
 Abaixo estão os comandos necessários para habilitar os serviços **NETCONF** e **SSH** no equipamento.
 
-### 🔹 Configuração do NETCONF
+---
+
+## 🔹 Configuração do NETCONF
+
+A configuração abaixo habilita o serviço **NETCONF** no dispositivo Huawei, permitindo que a aplicação envie blocos XML e execute automações de forma segura.
+
 ```bash
 snetconf server enable
 ssh user netconf
@@ -80,7 +85,18 @@ aaa
  quit
 ```
 
-### 🔹 Configuração do SSH
+---
+
+## 🔹 Configuração do SSH
+
+Esta configuração habilita o serviço **SSHv2 (Stelnet)** no equipamento Huawei e vincula o usuário à **chave pública RSA** para autenticação segura.  
+
+Por meio desse serviço, a aplicação é capaz de:
+
+- 💾 **Realizar backups automáticos**  
+- 🧠 **Executar comandos diretos via console interativo**  
+- 📡 **Efetuar testes de conectividade (ping/traceroute)**  
+
 ```bash
 stelnet server enable
 user-interface vty 0 4
@@ -102,8 +118,18 @@ rsa peer-public-key rsa01 encoding-type openssh
  peer-public-key end
 ssh user python assign rsa-key rsa01
 ```
+🔑 **Observação:**
 
-### 🔹 Interface de Gestão (exemplo)
+Substitua o conteúdo entre `public-key-code begin` e `end` pela **sua chave pública RSA** (`id_rsa.pub`).  
+
+Essa chave deve corresponder à **chave privada** configurada no campo `key_path` do módulo **SSH** da aplicação.
+
+---
+
+## 🔹 Interface de Gestão (Exemplo)
+
+A configuração abaixo define a **interface de gerenciamento (Vlanif1)** responsável pela comunicação entre o equipamento Huawei e a aplicação de automação.  
+Essa interface deve estar ativa e acessível para permitir conexões via **NETCONF** e **SSH**.
 
 ```bash
 interface Vlanif1
@@ -112,40 +138,58 @@ interface Vlanif1
  quit
 ```
 
-###  🗝️ Geração da Chave RSA (para SSH)
+---
 
-Antes de executar o projeto, gere suas chaves RSA no Git Bash
+## 🗝️ Geração da Chave RSA (para SSH)
+
+Antes de executar o projeto, é necessário gerar um **par de chaves RSA** para autenticação segura via **SSH**.  
+Essa chave garante uma comunicação criptografada entre o software e o equipamento Huawei, sem necessidade de senha manual.
+
+Execute o seguinte comando no **Git Bash** (ou terminal equivalente):
 
 ```bash
-ssh-keygen -t rsa 
+ssh-keygen -t rsa
+```
+Durante o processo, será solicitado um **nome de arquivo** e, opcionalmente, uma **senha de proteção**.  
+
+Por padrão, as chaves serão salvas no seguinte diretório:
+
+```bash
+C:\Users<seu_usuario>.ssh\
 ```
 
-🔑 A chave privada (id_rsa) deve ser informada no campo key_path do módulo SSH.
-
-📋 A chave pública (id_rsa.pub) deve ser copiada para o dispositivo Huawei (campo public-key-code).
+🔑 **A chave privada** (`id_rsa`) deve ser informada no campo `key_path` do módulo **SSH** dentro da aplicação.  
+📋 **A chave pública** (`id_rsa.pub`) deve ser copiada para o dispositivo **Huawei**, no campo `public-key-code` da configuração SSH.
 
 ---
 
-###  📦 Instalação e Dependências
+## 📦 Instalação e Dependências
 
-Clone o repositório e instale as dependências necessárias:
+Para instalar e executar o projeto **Huawei Network Automation Tool**, siga os passos abaixo:
 
-```bash
-git clone https://github.com/joseffermax/Huawei-Network-Automation-Tool.git
-cd Huawei-Network-Automation-Tool
-pip install ncclient paramiko customtkinter
-```
+1. **Clone o repositório oficial do projeto:**
+   ```bash
+   git clone https://github.com/joseffermax/Huawei-Network-Automation-Tool.git
+   cd Huawei-Network-Automation-Tool
 
 ---
 
-###  🧩 Dependências Principais
+## 🧩 Dependências Principais
 
-```bash
+As principais bibliotecas utilizadas na aplicação são apresentadas abaixo.  
+Certifique-se de instalá-las antes da execução do sistema.
+
+```python
 # -*- coding: utf-8 -*-
 """
-Requisitos: python3, ncclient, paramiko, tkinter
+Requisitos: Python 3.x, ncclient, paramiko, tkinter
 """
-import os, sys, time, threading, subprocess
+
+import os
+import sys
+import time
+import threading
+import subprocess
 import tkinter as tk
 from ncclient import manager
 import paramiko
@@ -153,14 +197,26 @@ import paramiko
 
 ---
 
-###  🧩 Execução
+## 🧩 Execução
 
-Após configurar as credenciais no módulo Conexões, execute o programa:
+Para iniciar o programa, basta executar o comando abaixo no terminal:
+
 ```bash
 python main.py
-```
-A interface será iniciada automaticamente com todos os módulos habilitados.
 
+```
+A interface gráfica será aberta automaticamente com **todos os módulos habilitados**.
+
+Por padrão, o sistema utiliza **configurações de conexão pré-definidas** (armazenadas em memória), permitindo acesso imediato aos módulos de **teste e automação**.
+
+Após a inicialização, acesse o módulo **⚙️ Conexões** dentro da aplicação para **editar e validar** os parâmetros de rede, como:
+
+- 🌐 **Endereço IP / Host**  
+- 🔌 **Portas (NETCONF e SSH)**  
+- 👤 **Usuários e Senhas**  
+- 🗝️ **Caminho da Chave RSA** (para autenticação SSH segura)
+
+Essas alterações podem ser aplicadas **em tempo real**, sem a necessidade de reiniciar o aplicativo.
 
 ---
 
