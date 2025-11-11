@@ -2,6 +2,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Concluído-brightgreen.svg" alt="Status do Projeto">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/Interface-Tkinter-yellow.svg" alt="Tkinter UI">
+  <img src="https://img.shields.io/badge/Protocolos-NETCONF%20%7C%20SSH-orange.svg" alt="Protocolos">
+  <img src="https://img.shields.io/badge/Ambiente-Testado%20no%20eNSP-lightgrey.svg" alt="Ambiente Testado">
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/Licença-MIT-blue.svg" alt="Licença MIT">
   </a>
@@ -21,80 +25,168 @@
 
 ## 🧩 Sobre o Projeto
 
-O projeto **Huawei Network Automation Tool** foi desenvolvido como parte do **Trabalho de Conclusão de Curso (TCC)** de Tecnologia em Telemática, com o objetivo de simplificar e automatizar tarefas de configuração e monitoramento de dispositivos de rede.
+O projeto **Huawei Network Automation Tool** foi desenvolvido como parte do **Trabalho de Conclusão de Curso (TCC)** do curso de **Tecnologia em Telemática** no **IFPB - Campus Campina Grande**.
 
-Em ambientes corporativos e acadêmicos, o gerenciamento manual via **CLI** pode ser demorado e propenso a erros. Essa ferramenta centraliza as principais rotinas de administração — como envio de configurações, coleta de backups e testes de conectividade — em uma interface unificada, segura e de fácil uso.
+O objetivo é **automatizar e simplificar** tarefas de configuração, backup e monitoramento de dispositivos Huawei, centralizando todas as funções em uma interface única e segura.  
+A aplicação integra os protocolos **NETCONF** e **SSH**, com suporte a **autenticação RSA**, para garantir uma comunicação eficiente e confiável entre administrador e dispositivo.
 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
 
-- 🐍 **Python 3**
-- 🔐 **Paramiko** — Conexões seguras via SSHv2  
-- 🔧 **ncclient** — Integração com protocolo NETCONF  
-- 🗝️ **Chaves RSA** — Autenticação sem senha  
-- 🪟 **Tkinter / CustomTkinter** — Interface gráfica da aplicação  
-- 📜 **Logging / JSON / OS** — Armazenamento, logs e manipulação de arquivos
+- 🐍 **Python 3.10+**
+- 🔐 **Paramiko** — conexões seguras via SSHv2  
+- 🔧 **ncclient** — integração com protocolo NETCONF  
+- 🗝️ **Chaves RSA (ssh-keygen)** — autenticação sem senha  
+- 🪟 **Tkinter / CustomTkinter** — interface gráfica da aplicação  
+- 📜 **Logging / JSON / OS / threading** — controle de logs, arquivos e execução paralela  
 
 ---
 
 ## 🧠 Arquitetura e Módulos Principais
 
-A ferramenta foi estruturada de forma modular, garantindo escalabilidade e manutenção simples.
+A ferramenta foi projetada de forma **modular**, permitindo expansão, paralelismo e manutenção simples.  
+Cada módulo executa uma função essencial para administração de redes.
 
-| Módulo | Função Principal | Descrição |
-|--------|------------------|------------|
-| **Aplicar Configuração** | Envio de blocos XML via NETCONF | Permite aplicar configurações diretamente nos dispositivos de rede, com suporte à edição dinâmica durante a execução. |
-| **Gerar Backup** | Extração de configurações completas | Coleta e armazena as configurações atuais do dispositivo, salvando automaticamente em diretórios organizados. |
-| **Console Interativo** | Execução manual de comandos SSH | Permite ao administrador enviar comandos diretamente, com retorno em tempo real na interface. |
-| **Testes de Conectividade** | Ping e Traceroute integrados | Executa diagnósticos de conectividade e mostra os resultados de forma prática e visual. |
-| **Gerenciamento de Credenciais** | Alteração dinâmica de login | As credenciais NETCONF e SSH podem ser modificadas sem reiniciar o aplicativo. |
-| **Registro de Logs** | Auditoria e rastreabilidade | Todos os eventos e operações são registrados para consultas futuras e auditorias. |
-
----
-
-## 🧪 Fase de Testes
-
-A ferramenta foi validada em ambiente simulado com o **eNSP (Emulator Network Simulation Platform)**, da Huawei.  
-Os testes confirmaram a comunicação estável entre os módulos, execução correta de comandos e extração de configurações completas.
-
-📊 **Resultados:**
-- ✅ Envio e aplicação bem-sucedida de blocos XML  
-- ✅ Geração automática de backups em diretórios dedicados  
-- ✅ Conectividade validada via ping e traceroute integrados  
-- ✅ Logs gerados para todas as operações  
-- ✅ Comunicação simultânea entre NETCONF e SSH sem conflito
+| Módulo | Função Principal | Imagem |
+|--------|------------------|--------|
+| **Aplicar Configuração (NETCONF)** | Envio de blocos XML diretamente ao dispositivo Huawei via NETCONF. Permite alterações automatizadas e seguras. | ![NETCONF](./screenshots/netconf_module.png) |
+| **Backup e Extração (SSH)** | Extração e salvamento da configuração do dispositivo via SSH, com suporte a backups automáticos. | ![Backup](./screenshots/backup_module.png) |
+| **Console Interativo (SSH)** | Terminal integrado para execução de comandos manuais via sessão SSH autenticada por RSA. | ![Console](./screenshots/console_module.png) |
+| **Testes de Conectividade** | Execução de ping e traceroute com exibição em tempo real. | ![Testes](./screenshots/test_module.png) |
+| **Configurações Dinâmicas** | Edição e validação em tempo real dos parâmetros NETCONF e SSH, sem reiniciar o app. | ![Configurações](./screenshots/config_module.png) |
+| **Logs do Sistema** | Armazena todos os eventos e ações executadas pela ferramenta. | ![Logs](./screenshots/logs_module.png) |
 
 ---
 
+## 🧪 Configuração do Ambiente de Testes (eNSP Huawei)
+
+O ambiente foi montado no **Huawei eNSP (Emulator Network Simulation Platform)**, utilizando roteadores **Huawei AR**.  
+Abaixo estão os comandos necessários para habilitar os serviços **NETCONF** e **SSH** no equipamento.
+
+### 🔹 Configuração do NETCONF
+```bash
+snetconf server enable
+ssh user netconf
+ssh user netconf authentication-type password
+ssh user netconf service-type snetconf
+netconf
+ protocol inbound ssh port 830
+ quit
+aaa
+ local-user netconf password irreversible-cipher Huawei12#$
+ local-user netconf service-type ssh
+ local-user netconf level 3
+ quit
+```
+
+### 🔹 Configuração do SSH
+```bash
+stelnet server enable
+user-interface vty 0 4
+ authentication-mode aaa
+ protocol inbound ssh
+ user privilege level 3
+aaa
+ local-user python password irreversible-cipher Huawei12#$
+ local-user python user-group manage-ug
+ local-user python service-type ssh
+ quit
+ssh user python
+ssh user python authentication-type rsa
+ssh user python service-type stelnet
+rsa peer-public-key rsa01 encoding-type openssh
+ public-key-code begin
+  #Insira sua chave pública aqui#
+  public-key-code end
+ peer-public-key end
+ssh user python assign rsa-key rsa01
+```
+
+### 🔹 Interface de Gestão (exemplo)
+
+```bash
+interface Vlanif1
+ ip address 192.168.56.100 255.255.255.0
+ undo shutdown
+ quit
+```
+
+###  🗝️ Geração da Chave RSA (para SSH)
+
+Antes de executar o projeto, gere suas chaves RSA no Git Bash
+
+```bash
+ssh-keygen -t rsa 
+```
+
+🔑 A chave privada (id_rsa) deve ser informada no campo key_path do módulo SSH.
+
+📋 A chave pública (id_rsa.pub) deve ser copiada para o dispositivo Huawei (campo public-key-code).
+
 ---
 
-## 📸 Interface da Aplicação
+###  📦 Instalação e Dependências
 
-> As telas a seguir apresentam a interface principal e as janelas de configuração da ferramenta.
+Clone o repositório e instale as dependências necessárias:
 
-| Tela Principal | Aplicar Configuração | Teste de Conectividade |
-|----------------|----------------------|------------------------|
-| ![Tela Principal](./screenshots/main_window.png) | ![Configuração](./screenshots/config_window.png) | ![Conectividade](./screenshots/connectivity_window.png) |
+```bash
+git clone https://github.com/joseffermax/Huawei-Network-Automation-Tool.git
+cd Huawei-Network-Automation-Tool
+pip install ncclient paramiko customtkinter
+```
 
 ---
 
-## 📚 Fundamentação Técnica
+###  🧩 Dependências Principais
 
-A ferramenta foi desenvolvida com base em conceitos de **automação de redes**, **protocolos de gerenciamento remoto (NETCONF e SSH)** e **segurança em comunicação**.  
-Essas tecnologias são amplamente utilizadas em ambientes profissionais para garantir **padronização, rastreabilidade e redução de falhas humanas** no gerenciamento de dispositivos.
+```bash
+# -*- coding: utf-8 -*-
+"""
+Requisitos: python3, ncclient, paramiko, tkinter
+"""
+import os, sys, time, threading, subprocess
+import tkinter as tk
+from ncclient import manager
+import paramiko
+```
+
+---
+
+###  🧩 Execução
+
+Após configurar as credenciais no módulo Conexões, execute o programa:
+```bash
+python main.py
+```
+A interface será iniciada automaticamente com todos os módulos habilitados.
+
 
 ---
 
 ## 🚀 Conclusão
 
-O projeto **Huawei Network Automation Tool** demonstra a viabilidade da automação como suporte à administração de redes modernas.  
-Seu desenvolvimento reforça a importância de integrar **segurança, eficiência e praticidade** em um único sistema.
+O projeto **Huawei Network Automation Tool** demonstra a aplicabilidade prática da **automação em redes corporativas**, oferecendo benefícios essenciais como:
 
-A ferramenta apresenta potencial de expansão para:
-- Integração com sistemas de versionamento (Git);
-- Auditorias automatizadas de configuração;
-- Monitoramento SNMP e API REST.
+- ✅ **Redução de erros humanos**  
+- ⚡ **Maior eficiência e produtividade**  
+- 🧩 **Centralização das tarefas de administração**  
+- 🔒 **Segurança e rastreabilidade em todas as operações**
+
+A ferramenta provou sua eficácia durante os testes, integrando de forma estável os protocolos **NETCONF** e **SSH**, além de proporcionar um ambiente gráfico intuitivo e seguro para administradores de rede.
+
+---
+
+## 🔮 Melhorias Futuras
+
+O desenvolvimento contínuo da ferramenta visa torná-la ainda mais robusta e completa.  
+Entre as próximas atualizações planejadas, destacam-se:
+
+- 🚀 **Otimização de desempenho geral** para maior responsividade  
+- 🧱 **Adição de novos módulos administrativos** e de monitoramento  
+- 💬 **Pop-ups interativos** com dicas e instruções contextuais  
+- 🔐 **Criptografia nos backups automáticos** para reforço da segurança  
+- 🎨 **Interface gráfica aprimorada**, fluida e com design mais moderno  
 
 ---
 
@@ -102,27 +194,37 @@ A ferramenta apresenta potencial de expansão para:
 
 **Autor:** Joseffer Maxwel Oliveira das Mercês  
 **Curso:** Tecnologia em Telemática — *IFPB Campus Campina Grande*  
-**Orientador:** Prof. Ewerton Rômulo Silva Castro  
+**Orientador:** Dr. Prof. Marcelo Portela Sousa  
 
 ---
 
 ## 📜 Licença
 
 Distribuído sob a **Licença MIT**.  
-Consulte o arquivo `LICENSE` para mais detalhes.
+Consulte o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
 
 ---
 
-## 📬 Contato
+## 📬 Contato & Mídias
 
-- 📧 Email: [joseffermax1472@gmail.com](mailto:joseffermax1472@gmail.com)  
-- 💼 LinkedIn: [Joseffer Maxwel](https://www.linkedin.com/in/joseffer-maxwel-4309ab243)  
-- 🧠 Lattes: [Joseffer Maxwel Oliveira das Mercês](http://lattes.cnpq.br/2695955591585329)  
-- 🏅 Credly: [Joseffer Maxwel Oliveira Das Merces](https://www.credly.com/users/joseffer-maxwel)
+<p align="center">
+  <a href="mailto:joseffermax1472@gmail.com">
+    <img src="https://img.shields.io/badge/Email-joseffermax1472%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+  </a>
+  <a href="https://www.linkedin.com/in/joseffer-maxwel-4309ab243">
+    <img src="https://img.shields.io/badge/LinkedIn-Joseffer%20Maxwel-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+  </a>
+  <a href="http://lattes.cnpq.br/2695955591585329">
+    <img src="https://img.shields.io/badge/Lattes-Joseffer%20Maxwel-lightgrey?style=for-the-badge&logo=academia" alt="Lattes">
+  </a>
+  <a href="https://www.credly.com/users/joseffer-maxwel">
+    <img src="https://img.shields.io/badge/Credly-Joseffer%20Maxwel-orange?style=for-the-badge&logo=credly" alt="Credly">
+  </a>
+  <a href="https://github.com/joseffermax">
+    <img src="https://img.shields.io/badge/GitHub-joseffermax-black?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+</p>
 
 ---
 
 <h2 align="center">⚙️ “Automação é o caminho para redes mais seguras, rápidas e inteligentes.” 🚀</h2>
-
-## 🧰 Estrutura do Projeto
-
