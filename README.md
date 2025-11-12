@@ -1,6 +1,10 @@
 <h1 align="center">🤖 Huawei Network Automation Tool ⚙️</h1>
 
 <p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=3500&pause=800&color=1ABC9C&center=true&vCenter=true&width=850&lines=Automação+de+Redes+Huawei;NETCONF+%7C+SSH+%7C+Python;Gerencie+e+Monitore+com+Eficiência!" alt="Título Animado">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Status-Concluído-brightgreen.svg" alt="Status do Projeto">
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/Interface-Tkinter-yellow.svg" alt="Tkinter UI">
@@ -23,53 +27,140 @@
 
 ---
 
-## 🧩 Sobre o Projeto
+## 🌐 O que é o eNSP Huawei
 
-O projeto **Huawei Network Automation Tool** foi desenvolvido como parte do **Trabalho de Conclusão de Curso (TCC)** do curso de **Tecnologia em Telemática** no **IFPB - Campus Campina Grande**.
+O **eNSP (Emulator Network Simulation Platform)** é o **emulador oficial da Huawei** para simulação de redes e dispositivos.  
+Ele permite **criar topologias de rede virtuais** com switches e roteadores Huawei, possibilitando testar **configurações reais de VRP (Versatile Routing Platform)**.
 
-O objetivo é **automatizar e simplificar** tarefas de configuração, backup e monitoramento de dispositivos Huawei, centralizando todas as funções em uma interface única e segura.  
-A aplicação integra os protocolos **NETCONF** e **SSH**, com suporte a **autenticação RSA**, para garantir uma comunicação eficiente e confiável entre administrador e dispositivo.
+> ⚙️ O projeto foi testado utilizando o **Switch Huawei CE12800**, que executa o **VRP 8**, e também pode funcionar com roteadores Huawei compatíveis com o mesmo sistema.
+
+O eNSP possibilita criar conexões entre **equipamentos virtuais e o PC físico** através da **nuvem de integração (VirtualBox Host-Only Network)**, tornando possível a comunicação entre o software de automação e o dispositivo Huawei.
+
+---
+
+## ☁️ Configuração da Nuvem (VirtualBox Host-Only Network)
+
+A imagem abaixo representa a **configuração da nuvem** utilizada no eNSP para comunicação entre o **Huawei Network Automation Tool** e o **Switch CE12800**.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1210101d-fb80-4bd6-b72a-8ce0c5ded28e" alt="Configuração da Nuvem eNSP" width="650">
+</p>
+
+> 🔹 É através dessa interface que o PC e o equipamento Huawei trocam dados pelos protocolos NETCONF e SSH.
 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
 
-- 🐍 **Python 3.10+**
+<p align="center">
+  <!-- Bibliotecas Python -->
+  <img src="https://img.shields.io/badge/Paramiko-SSH%20Automation-blue?style=for-the-badge&logo=python&logoColor=white" alt="Paramiko">
+  <img src="https://img.shields.io/badge/ncclient-NETCONF%20Integration-orange?style=for-the-badge&logo=python&logoColor=white" alt="ncclient">
+  <img src="https://img.shields.io/badge/Tkinter-Custom%20UI-yellow?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter">
+  <img src="https://img.shields.io/badge/Logging%20%7C%20JSON%20%7C%20Threading-System%20Modules-lightgrey?style=for-the-badge&logo=python&logoColor=white" alt="Python Modules">
+</p>
+
+---
+
+### 🧰 Ferramentas de Desenvolvimento
+
+- 🐍 **Python 3.10+** — linguagem base do projeto  
+- 💻 **Git Bash** — execução de comandos e geração de chaves RSA  
+- 📘 **Jupyter Notebook** — análise modular e testes de código  
+
+---
+
+### 📦 Principais Bibliotecas Utilizadas
+
 - 🔐 **Paramiko** — conexões seguras via SSHv2  
 - 🔧 **ncclient** — integração com protocolo NETCONF  
 - 🗝️ **Chaves RSA (ssh-keygen)** — autenticação sem senha  
-- 🪟 **Tkinter / CustomTkinter** — interface gráfica da aplicação  
-- 📜 **Logging / JSON / OS / threading** — controle de logs, arquivos e execução paralela  
+- 🪟 **Tkinter / CustomTkinter** — interface gráfica moderna  
+- 📜 **Logging / JSON / OS / threading** — controle de logs e multitarefas  
 
 ---
 
-## 🧠 Arquitetura e Módulos Principais
 
-A ferramenta foi projetada de forma **modular**, permitindo expansão, paralelismo e manutenção simples.  
-Cada módulo executa uma função essencial para administração de redes.
+## 🧩 Estrutura e Módulos Principais
 
-| Módulo | Função Principal | Imagem |
-|--------|------------------|--------|
-| **Aplicar Configuração (NETCONF)** | Envio de blocos XML diretamente ao dispositivo Huawei via NETCONF. Permite alterações automatizadas e seguras. | ![NETCONF](./screenshots/netconf_module.png) |
-| **Backup e Extração (SSH)** | Extração e salvamento da configuração do dispositivo via SSH, com suporte a backups automáticos. | ![Backup](./screenshots/backup_module.png) |
-| **Console Interativo (SSH)** | Terminal integrado para execução de comandos manuais via sessão SSH autenticada por RSA. | ![Console](./screenshots/console_module.png) |
-| **Testes de Conectividade** | Execução de ping e traceroute com exibição em tempo real. | ![Testes](./screenshots/test_module.png) |
-| **Configurações Dinâmicas** | Edição e validação em tempo real dos parâmetros NETCONF e SSH, sem reiniciar o app. | ![Configurações](./screenshots/config_module.png) |
-| **Logs do Sistema** | Armazena todos os eventos e ações executadas pela ferramenta. | ![Logs](./screenshots/logs_module.png) |
+> ⚙️ Cada módulo foi projetado de forma independente, com foco em **automação, confiabilidade e segurança**.  
+> Passe o mouse sobre os módulos abaixo 👇 para destaque visual.
+
+<p align="center">
+  <table>
+    <tr>
+      <td align="center" width="45%">
+        <strong>⚙️ Aplicar Configuração (NETCONF)</strong><br>
+        <em>Envio de blocos XML diretamente ao dispositivo Huawei via NETCONF.</em><br><br>
+        <a href="https://github.com/user-attachments/assets/e3917464-f98b-47ab-ae9f-29a771bda710">
+          <img src="https://github.com/user-attachments/assets/e3917464-f98b-47ab-ae9f-29a771bda710" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+        </a>
+      </td>
+      <td align="center" width="45%">
+        <strong>💾 Backup e Extração (SSH)</strong><br>
+        <em>Backup completo e extração segura da configuração via SSH.</em><br><br>
+        <a href="https://github.com/user-attachments/assets/67fd8d7c-2ce2-4157-b432-490f42d485ba">
+          <img src="https://github.com/user-attachments/assets/67fd8d7c-2ce2-4157-b432-490f42d485ba" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="45%">
+        <strong>🧠 Console Interativo (SSH)</strong><br>
+        <em>Terminal integrado com autenticação RSA e execução em tempo real.</em><br><br>
+        <a href="https://github.com/user-attachments/assets/cb599568-ddc5-421c-9007-e523d1c65fd5">
+          <img src="https://github.com/user-attachments/assets/cb599568-ddc5-421c-9007-e523d1c65fd5" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        </a>
+      </td>
+      <td align="center" width="45%">
+        <strong>📡 Testes de Conectividade</strong><br>
+        <em>Execução de ping e traceroute com retorno visual em tempo real.</em><br><br>
+        <a href="https://github.com/user-attachments/assets/7890b0f1-1004-4cdf-9395-521ed2ef5cd5">
+          <img src="https://github.com/user-attachments/assets/7890b0f1-1004-4cdf-9395-521ed2ef5cd5" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="45%">
+        <strong>🔌 Conexões (Configuração)</strong><br>
+        <em>Configuração e validação dos parâmetros NETCONF e SSH com autenticação RSA.</em><br><br>
+        <a href="https://github.com/user-attachments/assets/d5206281-16cc-4839-a1cc-1d4fab98909b">
+          <img src="https://github.com/user-attachments/assets/d5206281-16cc-4839-a1cc-1d4fab98909b" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        </a>
+      </td>
+      <td align="center" width="45%">
+        <strong>📜 Logs e Diagnósticos</strong><br>
+        <em>Registro detalhado de eventos, conexões e execuções.</em><br><br>
+        <a href="https://github.com/user-attachments/assets/65fa767d-d9c4-4519-b144-c0eff60ae5bc">
+          <img src="https://github.com/user-attachments/assets/65fa767d-d9c4-4519-b144-c0eff60ae5bc" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+        </a>
+      </td>
+    </tr>
+  </table>
+</p>
 
 ---
 
-## 🧪 Configuração do Ambiente de Testes (eNSP Huawei)
+✨ *As imagens possuem sombra e proporção uniforme. Clique para visualizar em tamanho completo.*
 
-O ambiente foi montado no **Huawei eNSP (Emulator Network Simulation Platform)**, utilizando roteadores **Huawei AR**.  
-Abaixo estão os comandos necessários para habilitar os serviços **NETCONF** e **SSH** no equipamento.
+
+## 🖥️ Demonstração da Ferramenta
+
+Abaixo é apresentado o **Huawei Network Automation Tool** em execução, demonstrando os principais módulos integrados na interface gráfica:
+
+<p align="center">
+  <img src="./screenshots/app_interface_demo.png" alt="Interface principal da ferramenta" width="750">
+</p>
+
+> ✅ Interface desenvolvida em **CustomTkinter**, com suporte a **execução paralela**, **validação em tempo real** e **integração direta com NETCONF e SSH**.
 
 ---
 
-## 🔹 Configuração do NETCONF
+## 🔧 Configurações Necessárias no Equipamento Huawei
 
-A configuração abaixo habilita o serviço **NETCONF** no dispositivo Huawei, permitindo que a aplicação envie blocos XML e execute automações de forma segura.
+As configurações abaixo permitem a comunicação entre o **software** e o **equipamento Huawei**, habilitando os serviços NETCONF e SSH, além de definir a interface de gerenciamento.
 
+### 🧩 Habilitar NETCONF (ncclient)
 ```bash
 snetconf server enable
 ssh user netconf
@@ -85,24 +176,14 @@ aaa
  quit
 ```
 
----
-
-## 🔹 Configuração do SSH
-
-Esta configuração habilita o serviço **SSHv2 (Stelnet)** no equipamento Huawei e vincula o usuário à **chave pública RSA** para autenticação segura.  
-
-Por meio desse serviço, a aplicação é capaz de:
-
-- 💾 **Realizar backups automáticos**  
-- 🧠 **Executar comandos diretos via console interativo**  
-- 📡 **Efetuar testes de conectividade (ping/traceroute)**  
-
+### 🔐 Habilitar SSH e autenticação por chave RSA (Paramiko)
 ```bash
 stelnet server enable
 user-interface vty 0 4
  authentication-mode aaa
  protocol inbound ssh
  user privilege level 3
+ quit
 aaa
  local-user python password irreversible-cipher Huawei12#$
  local-user python user-group manage-ug
@@ -118,105 +199,43 @@ rsa peer-public-key rsa01 encoding-type openssh
  peer-public-key end
 ssh user python assign rsa-key rsa01
 ```
-🔑 **Observação:**
 
-Substitua o conteúdo entre `public-key-code begin` e `end` pela **sua chave pública RSA** (`id_rsa.pub`).  
-
-Essa chave deve corresponder à **chave privada** configurada no campo `key_path` do módulo **SSH** da aplicação.
-
----
-
-## 🔹 Interface de Gestão (Exemplo)
-
-A configuração abaixo define a **interface de gerenciamento (Vlanif1)** responsável pela comunicação entre o equipamento Huawei e a aplicação de automação.  
-Essa interface deve estar ativa e acessível para permitir conexões via **NETCONF** e **SSH**.
-
+### 🌐 Ativar Interface de Gerenciamento
 ```bash
 interface Vlanif1
  ip address 192.168.56.100 255.255.255.0
  undo shutdown
  quit
+
+interface GE 1/0/0
+ undo shutdown
+ quit
 ```
+
+> ⚠️ A interface **Vlanif1** é a responsável pela comunicação com o PC via **VirtualBox Host-Only Network (192.168.56.0/24)**.
 
 ---
 
-## 🗝️ Geração da Chave RSA (para SSH)
+## 🗝️ Geração da Chave RSA
 
-Antes de executar o projeto, é necessário gerar um **par de chaves RSA** para autenticação segura via **SSH**.  
-Essa chave garante uma comunicação criptografada entre o software e o equipamento Huawei, sem necessidade de senha manual.
-
-Execute o seguinte comando no **Git Bash** (ou terminal equivalente):
+Execute o seguinte comando para gerar as chaves de autenticação:
 
 ```bash
 ssh-keygen -t rsa
 ```
-Durante o processo, será solicitado um **nome de arquivo** e, opcionalmente, uma **senha de proteção**.  
 
-Por padrão, as chaves serão salvas no seguinte diretório:
-
-```bash
-C:\Users<seu_usuario>.ssh\
-```
-
-🔑 **A chave privada** (`id_rsa`) deve ser informada no campo `key_path` do módulo **SSH** dentro da aplicação.  
-📋 **A chave pública** (`id_rsa.pub`) deve ser copiada para o dispositivo **Huawei**, no campo `public-key-code` da configuração SSH.
-
----
-
-## 📦 Instalação e Dependências
-
-Para instalar e executar o projeto **Huawei Network Automation Tool**, siga os passos abaixo:
-
-1. **Clone o repositório oficial do projeto:**
-   ```bash
-   git clone https://github.com/joseffermax/Huawei-Network-Automation-Tool.git
-   cd Huawei-Network-Automation-Tool
-
----
-
-## 🧩 Dependências Principais
-
-As principais bibliotecas utilizadas na aplicação são apresentadas abaixo.  
-Certifique-se de instalá-las antes da execução do sistema.
-
-```python
-# -*- coding: utf-8 -*-
-"""
-Requisitos: Python 3.x, ncclient, paramiko, tkinter
-"""
-
-import os
-import sys
-import time
-import threading
-import subprocess
-import tkinter as tk
-from ncclient import manager
-import paramiko
-```
-
----
-
-## 🧩 Execução
-
-Para iniciar o programa, basta executar o comando abaixo no terminal:
+Depois visualize sua **chave pública** com:
 
 ```bash
-python main.py
-
+cat /c/Users/Joseffer/.ssh/id_rsa.pub
 ```
-A interface gráfica será aberta automaticamente com **todos os módulos habilitados**.
 
-Por padrão, o sistema utiliza **configurações de conexão pré-definidas** (armazenadas em memória), permitindo acesso imediato aos módulos de **teste e automação**.
-
-Após a inicialização, acesse o módulo **⚙️ Conexões** dentro da aplicação para **editar e validar** os parâmetros de rede, como:
-
-- 🌐 **Endereço IP / Host**  
-- 🔌 **Portas (NETCONF e SSH)**  
-- 👤 **Usuários e Senhas**  
-- 🗝️ **Caminho da Chave RSA** (para autenticação SSH segura)
-
-Essas alterações podem ser aplicadas **em tempo real**, sem a necessidade de reiniciar o aplicativo.
+Copie o conteúdo e cole dentro do equipamento Huawei, no trecho:
+```
+public-key-code begin
+  <sua_chave_publica_aqui>
+public-key-code end
+```
 
 ---
 
@@ -229,20 +248,23 @@ O projeto **Huawei Network Automation Tool** demonstra a aplicabilidade prática
 - 🧩 **Centralização das tarefas de administração**  
 - 🔒 **Segurança e rastreabilidade em todas as operações**
 
-A ferramenta provou sua eficácia durante os testes, integrando de forma estável os protocolos **NETCONF** e **SSH**, além de proporcionar um ambiente gráfico intuitivo e seguro para administradores de rede.
+Durante os testes no **eNSP**, o sistema apresentou resultados estáveis e comunicação segura entre o **PC Host** e o **Switch Huawei CE12800** via **NETCONF** e **SSH**.
 
 ---
 
 ## 🔮 Melhorias Futuras
 
-O desenvolvimento contínuo da ferramenta visa torná-la ainda mais robusta e completa.  
-Entre as próximas atualizações planejadas, destacam-se:
+- 🚀 **Otimização de desempenho geral** e redução no tempo de resposta  
+- 🧱 **Novos módulos administrativos** e de diagnóstico em tempo real  
+- 💬 **Dicas contextuais interativas** e pop-ups informativos  
+- 🔐 **Criptografia de backups automáticos**  
+- 🎨 **Interface modernizada com temas claros e escuros**  
 
-- 🚀 **Otimização de desempenho geral** para maior responsividade  
-- 🧱 **Adição de novos módulos administrativos** e de monitoramento  
-- 💬 **Pop-ups interativos** com dicas e instruções contextuais  
-- 🔐 **Criptografia nos backups automáticos** para reforço da segurança  
-- 🎨 **Interface gráfica aprimorada**, fluida e com design mais moderno  
+---
+
+## 🙏 Agradecimentos
+
+Agradeço ao **IFPB - Campus Campina Grande** e ao meu orientador **Dr. Prof. Marcelo Portela Sousa**, pelo apoio, orientação e incentivo durante o desenvolvimento deste projeto.
 
 ---
 
@@ -264,7 +286,7 @@ Consulte o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
 ## 📬 Contato & Mídias
 
 <p align="center">
-  <a href="mailto:joseffermax1472@gmail.com">
+  <a href="mailto:joseffermax1472@gmail.com?subject=Contato%20-%20Huawei%20Network%20Automation%20Tool">
     <img src="https://img.shields.io/badge/Email-joseffermax1472%40gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
   </a>
   <a href="https://www.linkedin.com/in/joseffer-maxwel-4309ab243">
@@ -284,3 +306,7 @@ Consulte o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
 ---
 
 <h2 align="center">⚙️ “Automação é o caminho para redes mais seguras, rápidas e inteligentes.” 🚀</h2>
+
+<p align="center">
+  <img src="https://github.com/itsksaurabh/itsksaurabh/raw/master/assets/Developer.gif" width="250">
+</p>
