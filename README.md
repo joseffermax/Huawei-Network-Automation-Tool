@@ -27,33 +27,28 @@
 
 ---
 
-## ☕ Execução do Script em Jupyter Notebook
+## 📦 Principais Bibliotecas Utilizadas
 
-O script principal foi desenvolvido em **Jupyter Notebook** para permitir uma execução modular e interativa.  
-A interface foi estruturada para **testes, automações e depuração em tempo real**, mantendo clareza e praticidade.
-
-### ▶️ Como Executar
-
-1. Instale o **Python 3.10+** e o **Jupyter Notebook**:
-   ```bash
-   pip install jupyterlab notebook
-   ```
-
-2. Instale as dependências do projeto:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Execute o notebook:
-   ```bash
-   jupyter notebook "Huawei Network Automation Tool - Script.ipynb"
-   ```
-
-> 💡 Recomenda-se o uso do **JupyterLab** para melhor visualização e controle do ambiente de execução.  
-> O script foi testado no **Windows 10**, com suporte a **CustomTkinter**.
+<p align="center">
+  <img src="https://img.shields.io/badge/Paramiko-SSH%20Automation-blue?style=for-the-badge&logo=python&logoColor=white" alt="Paramiko">
+  <img src="https://img.shields.io/badge/ncclient-NETCONF%20Integration-orange?style=for-the-badge&logo=python&logoColor=white" alt="ncclient">
+  <img src="https://img.shields.io/badge/RSA%20Keys-ssh--keygen%20Auth-green?style=for-the-badge&logo=lock&logoColor=white" alt="Chaves RSA">
+  <img src="https://img.shields.io/badge/CustomTkinter-Modern%20UI-yellow?style=for-the-badge&logo=python&logoColor=white" alt="CustomTkinter">
+  <img src="https://img.shields.io/badge/Logging%20%7C%20JSON%20%7C%20Threading-System%20Modules-lightgrey?style=for-the-badge&logo=python&logoColor=white" alt="System Modules">
+</p>
 
 ---
+
+### 🧰 Ferramentas de Desenvolvimento
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Git%20Bash-Terminal%20CLI-orange?style=for-the-badge&logo=git&logoColor=white" alt="Git Bash">
+  <img src="https://img.shields.io/badge/Jupyter-Notebook%20Environment-red?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter Notebook">
+</p>
+
 ---
+
 
 ## 🌐 O que é o eNSP Huawei
 
@@ -76,112 +71,6 @@ A imagem abaixo representa a **configuração da nuvem** utilizada no eNSP para 
 
 > 🔹 É através dessa interface que o PC e o equipamento Huawei trocam dados pelos protocolos NETCONF e SSH.
 
----
-
-## ⚙️ Tecnologias Utilizadas
-
-<p align="center">
-  <!-- Bibliotecas Python -->
-  <img src="https://img.shields.io/badge/Paramiko-SSH%20Automation-blue?style=for-the-badge&logo=python&logoColor=white" alt="Paramiko">
-  <img src="https://img.shields.io/badge/ncclient-NETCONF%20Integration-orange?style=for-the-badge&logo=python&logoColor=white" alt="ncclient">
-  <img src="https://img.shields.io/badge/Tkinter-Custom%20UI-yellow?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter">
-  <img src="https://img.shields.io/badge/Logging%20%7C%20JSON%20%7C%20Threading-System%20Modules-lightgrey?style=for-the-badge&logo=python&logoColor=white" alt="Python Modules">
-</p>
-
----
-
-### 🧰 Ferramentas de Desenvolvimento
-
-- 🐍 **Python 3.10+** — linguagem base do projeto  
-- 💻 **Git Bash** — execução de comandos e geração de chaves RSA  
-- 📘 **Jupyter Notebook** — análise modular e testes de código  
-
----
-
-### 📦 Principais Bibliotecas Utilizadas
-
-- 🔐 **Paramiko** — conexões seguras via SSHv2  
-- 🔧 **ncclient** — integração com protocolo NETCONF  
-- 🗝️ **Chaves RSA (ssh-keygen)** — autenticação sem senha  
-- 🪟 **Tkinter / CustomTkinter** — interface gráfica moderna  
-- 📜 **Logging / JSON / OS / threading** — controle de logs e multitarefas  
-
----
-
-
-## 🧩 Estrutura e Módulos Principais
-
-> ⚙️ Cada módulo foi projetado de forma independente, com foco em **automação, confiabilidade e segurança**.  
-
-<p align="center">
-  <table>
-    <tr>
-      <td align="center" width="45%">
-        <strong>⚙️ Aplicar Configuração (NETCONF)</strong><br>
-        <em>Envio de blocos XML diretamente ao dispositivo Huawei via NETCONF.</em><br><br>
-        <a href="https://github.com/user-attachments/assets/e3917464-f98b-47ab-ae9f-29a771bda710">
-          <img src="https://github.com/user-attachments/assets/e3917464-f98b-47ab-ae9f-29a771bda710" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        </a>
-      </td>
-      <td align="center" width="45%">
-        <strong>💾 Backup e Extração (SSH)</strong><br>
-        <em>Backup completo e extração segura da configuração via SSH.</em><br><br>
-        <a href="https://github.com/user-attachments/assets/67fd8d7c-2ce2-4157-b432-490f42d485ba">
-          <img src="https://github.com/user-attachments/assets/67fd8d7c-2ce2-4157-b432-490f42d485ba" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" width="45%">
-        <strong>🧠 Console Interativo (SSH)</strong><br>
-        <em>Terminal integrado com autenticação RSA e execução em tempo real.</em><br><br>
-        <a href="https://github.com/user-attachments/assets/cb599568-ddc5-421c-9007-e523d1c65fd5">
-          <img src="https://github.com/user-attachments/assets/cb599568-ddc5-421c-9007-e523d1c65fd5" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-        </a>
-      </td>
-      <td align="center" width="45%">
-        <strong>📡 Testes de Conectividade</strong><br>
-        <em>Execução de ping e traceroute com retorno visual em tempo real.</em><br><br>
-        <a href="https://github.com/user-attachments/assets/7890b0f1-1004-4cdf-9395-521ed2ef5cd5">
-          <img src="https://github.com/user-attachments/assets/7890b0f1-1004-4cdf-9395-521ed2ef5cd5" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" width="45%">
-        <strong>🔌 Conexões (Configuração)</strong><br>
-        <em>Configuração e validação dos parâmetros NETCONF e SSH com autenticação RSA.</em><br><br>
-        <a href="https://github.com/user-attachments/assets/d5206281-16cc-4839-a1cc-1d4fab98909b">
-          <img src="https://github.com/user-attachments/assets/d5206281-16cc-4839-a1cc-1d4fab98909b" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-        </a>
-      </td>
-      <td align="center" width="45%">
-        <strong>📜 Logs e Diagnósticos</strong><br>
-        <em>Registro detalhado de eventos, conexões e execuções.</em><br><br>
-        <a href="https://github.com/user-attachments/assets/65fa767d-d9c4-4519-b144-c0eff60ae5bc">
-          <img src="https://github.com/user-attachments/assets/65fa767d-d9c4-4519-b144-c0eff60ae5bc" width="450" style="border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-        </a>
-      </td>
-    </tr>
-  </table>
-</p>
-
----
-
-✨ *Clique para visualizar em tamanho completo.*
-
-
-## 🖥️ Demonstração da Ferramenta
-
-Abaixo é apresentado o **Huawei Network Automation Tool** em execução, demonstrando os principais módulos integrados na interface gráfica:
-
-<p align="center">
-  <img src="./screenshots/app_interface_demo.png" alt="Interface principal da ferramenta" width="750">
-</p>
-
-> ✅ Interface desenvolvida em **CustomTkinter**, com suporte a **execução paralela**, **validação em tempo real** e **integração direta com NETCONF e SSH**.
-
----
 
 ## 🔧 Configurações Necessárias no Equipamento Huawei
 
@@ -266,6 +155,45 @@ public-key-code end
 
 ---
 
+## ☕ Execução do Script em Jupyter Notebook
+
+O script principal foi desenvolvido em **Jupyter Notebook** para permitir uma execução modular e interativa.  
+A interface foi estruturada para **testes, automações e depuração em tempo real**, mantendo clareza e praticidade.
+
+### ▶️ Como Executar
+
+1. Instale o **Python 3.10+** e o **Jupyter Notebook**:
+   ```bash
+   pip install jupyterlab notebook
+   ```
+
+2. Instale as dependências do projeto:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Execute o notebook:
+   ```bash
+   jupyter notebook "Huawei Network Automation Tool - Script.ipynb"
+   ```
+
+> 💡 Recomenda-se o uso do **JupyterLab** para melhor visualização e controle do ambiente de execução.  
+> O script foi testado no **Windows 10**, com suporte a **CustomTkinter**.
+
+---
+
+## 🖥️ Demonstração da Ferramenta
+
+Abaixo é apresentado o **Huawei Network Automation Tool** em execução, demonstrando os principais módulos integrados na interface gráfica:
+
+<p align="center">
+  <img src="./screenshots/app_interface_demo.png" alt="Interface principal da ferramenta" width="750">
+</p>
+
+> ✅ Interface desenvolvida em **CustomTkinter**, com suporte a **execução paralela**, **validação em tempo real** e **integração direta com NETCONF e SSH**.
+
+---
+
 ## 🚀 Conclusão
 
 O projeto **Huawei Network Automation Tool** demonstra a aplicabilidade prática da **automação em redes corporativas**, oferecendo benefícios essenciais como:
@@ -332,7 +260,9 @@ Consulte o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
 
 ---
 
-<h2 align="center">⚙️ “Automação é o caminho para redes mais seguras, rápidas e inteligentes.” 🚀</h2>
+<p align="center">
+  <sub>Projeto desenvolvido no âmbito do curso de <strong>Tecnologia em Telemática</strong> — Instituto Federal da Paraíba (IFPB) - Campus Campina Grande</sub>
+</p>
 
 <p align="center">
   <img src="https://github.com/itsksaurabh/itsksaurabh/raw/master/assets/Developer.gif" width="250">
