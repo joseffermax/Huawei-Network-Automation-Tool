@@ -1,0 +1,7 @@
+
+paramiko==3.4.0
+ncclient==0.6.15
+customtkinter==5.2.2
+tk==0.1.0
+jupyterlab==4.1.5
+notebook==7.1.2
