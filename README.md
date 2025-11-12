@@ -1,7 +1,7 @@
 <h1 align="center">🤖 Huawei Network Automation Tool ⚙️</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=3500&pause=800&color=1ABC9C&center=true&vCenter=true&width=850&lines=Automação+de+Redes+Huawei;NETCONF+%7C+SSH+%7C+Python;Gerencie+e+Monitore+com+Eficiência!" alt="Título Animado">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=28&duration=3500&pause=800&color=9046FF&center=true&vCenter=true&width=850&lines=Automação+de+Redes+Huawei;NETCONF+%7C+SSH+%7C+Python;Gerencie+e+Monitore+com+Eficiência!" alt="Título Animado">
 </p>
 
 <p align="center">
@@ -25,6 +25,34 @@
   <strong>💻 Automatize, gerencie e monitore suas redes Huawei com segurança e eficiência!</strong>
 </p>
 
+---
+
+## ☕ Execução do Script em Jupyter Notebook
+
+O script principal foi desenvolvido em **Jupyter Notebook** para permitir uma execução modular e interativa.  
+A interface foi estruturada para **testes, automações e depuração em tempo real**, mantendo clareza e praticidade.
+
+### ▶️ Como Executar
+
+1. Instale o **Python 3.10+** e o **Jupyter Notebook**:
+   ```bash
+   pip install jupyterlab notebook
+   ```
+
+2. Instale as dependências do projeto:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Execute o notebook:
+   ```bash
+   jupyter notebook "Huawei Network Automation Tool - Script.ipynb"
+   ```
+
+> 💡 Recomenda-se o uso do **JupyterLab** para melhor visualização e controle do ambiente de execução.  
+> O script foi testado no **Windows 10**, com suporte a **CustomTkinter**.
+
+---
 ---
 
 ## 🌐 O que é o eNSP Huawei
@@ -84,7 +112,6 @@ A imagem abaixo representa a **configuração da nuvem** utilizada no eNSP para 
 ## 🧩 Estrutura e Módulos Principais
 
 > ⚙️ Cada módulo foi projetado de forma independente, com foco em **automação, confiabilidade e segurança**.  
-> Passe o mouse sobre os módulos abaixo 👇 para destaque visual.
 
 <p align="center">
   <table>
@@ -141,7 +168,7 @@ A imagem abaixo representa a **configuração da nuvem** utilizada no eNSP para 
 
 ---
 
-✨ *As imagens possuem sombra e proporção uniforme. Clique para visualizar em tamanho completo.*
+✨ *Clique para visualizar em tamanho completo.*
 
 
 ## 🖥️ Demonstração da Ferramenta
