@@ -184,11 +184,23 @@ A interface foi estruturada para **testes, automações e depuração em tempo r
 
 ## 🖥️ Demonstração da Ferramenta
 
-Abaixo é apresentado o **Huawei Network Automation Tool** em execução, demonstrando os principais módulos integrados na interface gráfica:
+Abaixo é apresentada a **Huawei Network Automation Tool** em execução, demonstrando todos os módulos integrados da interface gráfica.
 
 <p align="center">
-  <img src="./screenshots/app_interface_demo.png" alt="Interface principal da ferramenta" width="750">
+
+  <!-- Vídeo do YouTube (preview clicável) -->
+  <a href="https://youtu.be/AT97F0RVphU" target="_blank">
+    <img 
+      src="https://img.youtube.com/vi/AT97F0RVphU/maxresdefault.jpg" 
+      alt="Demonstração Huawei Network Automation Tool"
+      width="750"
+      style="border-radius: 10px;"
+    >
+  </a>
+
 </p>
+
+> 🎬 Clique na imagem acima para assistir à demonstração completa no YouTube.
 
 > ✅ Interface desenvolvida em **CustomTkinter**, com suporte a **execução paralela**, **validação em tempo real** e **integração direta com NETCONF e SSH**.
 
