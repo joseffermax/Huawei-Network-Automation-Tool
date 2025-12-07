@@ -33,7 +33,7 @@
   <img src="https://img.shields.io/badge/Paramiko-SSH%20Automation-blue?style=for-the-badge&logo=python&logoColor=white" alt="Paramiko">
   <img src="https://img.shields.io/badge/ncclient-NETCONF%20Integration-orange?style=for-the-badge&logo=python&logoColor=white" alt="ncclient">
   <img src="https://img.shields.io/badge/RSA%20Keys-ssh--keygen%20Auth-green?style=for-the-badge&logo=lock&logoColor=white" alt="Chaves RSA">
-  <img src="https://img.shields.io/badge/CustomTkinter-Modern%20UI-yellow?style=for-the-badge&logo=python&logoColor=white" alt="CustomTkinter">
+  <img src="https://img.shields.io/badge/Tkinter (ttk)-Modern%20UI-yellow?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter (ttk)">
   <img src="https://img.shields.io/badge/Logging%20%7C%20JSON%20%7C%20Threading-System%20Modules-lightgrey?style=for-the-badge&logo=python&logoColor=white" alt="System Modules">
 </p>
 
@@ -178,7 +178,7 @@ A interface foi estruturada para **testes, automações e depuração em tempo r
    ```
 
 > 💡 Recomenda-se o uso do **JupyterLab** para melhor visualização e controle do ambiente de execução.  
-> O script foi testado no **Windows 10**, com suporte a **CustomTkinter**.
+> O script foi testado no **Windows 10**, com suporte a **Tkinter (ttk)**.
 
 ---
 
@@ -202,7 +202,7 @@ Abaixo é apresentada a **Huawei Network Automation Tool** em execução, demons
 
 > 🎬 Clique na imagem acima para assistir à demonstração completa no YouTube.
 
-> ✅ Interface desenvolvida em **CustomTkinter**, com suporte a **execução paralela**, **validação em tempo real** e **integração direta com NETCONF e SSH**.
+> ✅ Interface desenvolvida em **Tkinter (ttk)**, com suporte a **execução paralela**, **validação em tempo real** e **integração direta com NETCONF e SSH**.
 
 ---
 
